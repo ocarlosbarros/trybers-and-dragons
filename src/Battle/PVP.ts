@@ -12,15 +12,12 @@ class PVP extends Battle {
   }
 
   fight(): number {
-    let round = 0;
-
-    while (round < 2) {
+    while (this._player.lifePoints > 0 && this._secondPlayer.lifePoints > 0) {
       this.player.attack(this._secondPlayer);
       this._secondPlayer.attack(this._player);
-      round += 1;
     }
     
-    return this.player.lifePoints === -1 ? -1 : 1;
+    return super.fight();
   }
 }
 
